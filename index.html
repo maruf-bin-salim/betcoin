@@ -15,6 +15,11 @@
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
+      background-image: url("./images/bg.avif");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-color: #cccccc;
+      height: 100vh;
     }
 
     .topnav {
@@ -27,8 +32,9 @@
       text-align: center;
       padding: 14px 16px;
       text-decoration: none;
-      font-size: 17px;
-      color: black;
+      font-size: x-large;
+      color: white;
+
     }
 
     .topnav a:hover {}
@@ -53,12 +59,23 @@
     @media screen and (max-width: 600px) {
       .topnav.responsive {
         position: relative;
+        background-color: rebeccapurple;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
       }
 
       .topnav.responsive .icon {
         position: absolute;
         right: 0;
         top: 0;
+      }
+
+      .topnav a {
+        display: none;
+
       }
 
       .topnav.responsive a {
@@ -84,11 +101,11 @@
     </div>
 
     <div
-      style="padding:10px; display: flex; flex-direction: column; flex: 1; background-color: rebeccapurple; overflow-y: scroll; height: 100%; gap: 10px;">
-      <div id="home" style="padding:16px; flex: 1; background-color: red; min-height: 100%;">
+      style="padding:10px; display: flex; flex-direction: column; flex: 1; overflow-y: scroll; height: 100%; gap: 10px;">
+      <div id="home" style="flex: 1; min-height: 100%;">
         a
       </div>
-      <div id="about" style="padding:16px; flex: 1; background-color: blue; min-height: 100%;">
+      <div id="about" style="flex: 1; min-height: 100%;">
         b
       </div>
     </div>
@@ -101,6 +118,8 @@
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
+
+        myFunction();
 
         document.querySelector(this.getAttribute('href')).scrollIntoView({
           behavior: 'smooth'
